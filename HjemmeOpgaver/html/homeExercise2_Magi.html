@@ -1,0 +1,195 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>homeExercise2_Magi</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-02-09"><meta name="DC.source" content="homeExercise2_Magi.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Opgave 2.1 Semilogaritmisk plot</a></li><li><a href="#3">Opgave 2.2 S&oslash;jlediagram</a></li><li><a href="#4">Opgave 2.3 Interpolation og overflade plots</a></li></ul></div><pre class="codeinput"><span class="comment">% HjemmeOpgave 2</span>
+</pre><h2 id="2">Opgave 2.1 Semilogaritmisk plot</h2><pre class="codeinput"><span class="comment">% antallet af studerende igennem 5 &aring;r, pr&aelig;senteret som vektor</span>
+studerende = [15 25 55 115 144];
+
+<span class="comment">% plottet med magenta firkanter, linewidth-4, mark&oslash;rstr.-10</span>
+semilogy(studerende,<span class="string">'ms'</span>,<span class="string">'Linewidth'</span>,4,<span class="string">'MarkerSize'</span>,10)
+
+<span class="comment">% 5 v&aelig;rdier p&aring; x aksen</span>
+xlim([0 5])
+
+<span class="comment">% tilsvarende labels p&aring; x og y aksen</span>
+xlabel(<span class="string">'Antal &aring;r'</span>)
+ylabel(<span class="string">'Antallet af studerende'</span>)
+
+<span class="comment">% title til plotet</span>
+title(<span class="string">'Semilogaritmisk plot'</span>)
+grid <span class="string">on</span>
+</pre><img vspace="5" hspace="5" src="homeExercise2_Magi_01.png" alt=""> <h2 id="3">Opgave 2.2 S&oslash;jlediagram</h2><pre class="codeinput"><span class="comment">% f&oslash;rst laves en vektor med 5 v&aelig;rdier</span>
+diagram = [20 16 13 12 8];
+
+<span class="comment">% s&oslash;jlediagrammen med r&oslash;d farve</span>
+bar(diagram,<span class="string">'r'</span>)
+title(<span class="string">'S&oslash;jlediagram'</span>)
+</pre><img vspace="5" hspace="5" src="homeExercise2_Magi_02.png" alt=""> <h2 id="4">Opgave 2.3 Interpolation og overflade plots</h2><pre class="codeinput"><span class="comment">% 5x5 matrix af tilf&aelig;ldige v&aelig;rdier</span>
+Z0 = rand(5);
+
+<span class="comment">% lav X0 Y0 variabler via meshgrid, 25 punkter p&aring; overfladen</span>
+vector1 = [1:5];
+[X0,Y0] = meshgrid(vector1,vector1);
+
+<span class="comment">% v&aelig;rdierne interpoleres for at f&aring; overfladen til at blive glat</span>
+vector2 =[1:0.1:5];
+[X1,Y1] = meshgrid(vector2,vector2);
+
+<span class="comment">% interpolation of vectors with cubic</span>
+Z1= interp2(X0,Y0,Z0,X1,Y1,<span class="string">'cubic'</span>);
+
+<span class="comment">% plot overfladen af Z1 med surf, brug shading og colormap</span>
+surf(X1,Y1,Z1)
+shading <span class="string">interp</span>;
+colormap <span class="string">jet</span>;
+
+<span class="comment">% s&aelig;t gr&aelig;nser til z akse</span>
+zlim([-0.2 1.2]);
+
+<span class="comment">%s&aelig;t hold on og contour med niveau 15</span>
+hold <span class="string">on</span>
+contour(X1,Y1,Z1,15);
+
+<span class="comment">% tilf&oslash;j colorbar</span>
+colorbar;
+
+<span class="comment">%S&aelig;t farveaksen til at g&aring; fra 0 til 1 (caxis)</span>
+caxis([0 1]);
+</pre><img vspace="5" hspace="5" src="homeExercise2_Magi_03.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% HjemmeOpgave 2
+
+%% Opgave 2.1 Semilogaritmisk plot 
+
+% antallet af studerende igennem 5 år, præsenteret som vektor
+studerende = [15 25 55 115 144];
+
+% plottet med magenta firkanter, linewidth-4, markørstr.-10
+semilogy(studerende,'ms','Linewidth',4,'MarkerSize',10)
+
+% 5 værdier på x aksen
+xlim([0 5])
+
+% tilsvarende labels på x og y aksen
+xlabel('Antal år')
+ylabel('Antallet af studerende')
+
+% title til plotet
+title('Semilogaritmisk plot')
+grid on
+
+%% Opgave 2.2 Søjlediagram
+
+% først laves en vektor med 5 værdier
+diagram = [20 16 13 12 8];
+
+% søjlediagrammen med rød farve
+bar(diagram,'r')
+title('Søjlediagram')
+
+%% Opgave 2.3 Interpolation og overflade plots
+
+% 5x5 matrix af tilfældige værdier
+Z0 = rand(5);
+
+% lav X0 Y0 variabler via meshgrid, 25 punkter på overfladen
+vector1 = [1:5];
+[X0,Y0] = meshgrid(vector1,vector1);
+
+% værdierne interpoleres for at få overfladen til at blive glat
+vector2 =[1:0.1:5];
+[X1,Y1] = meshgrid(vector2,vector2);
+
+% interpolation of vectors with cubic
+Z1= interp2(X0,Y0,Z0,X1,Y1,'cubic');
+
+% plot overfladen af Z1 med surf, brug shading og colormap
+surf(X1,Y1,Z1)
+shading interp;
+colormap jet;
+
+% sæt grænser til z akse
+zlim([-0.2 1.2]);
+
+%sæt hold on og contour med niveau 15
+hold on
+contour(X1,Y1,Z1,15);
+
+% tilføj colorbar
+colorbar;
+
+%Sæt farveaksen til at gå fra 0 til 1 (caxis)
+caxis([0 1]);
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
